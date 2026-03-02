@@ -7,6 +7,6 @@ export class CourseCategory extends BaseModel {
   @Column({ type: 'varchar', length: 64, unique: true })
   title: string;
 
-  @OneToMany(() => Course, (c) => c.categoryId)
+  @OneToMany('Course', 'categoryId')
   courses: Course[];
 }

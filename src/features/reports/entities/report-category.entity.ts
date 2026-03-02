@@ -10,6 +10,6 @@ export class ReportCategory extends BaseModel {
   @Column({ type: 'int', nullable: true })
   order?: number | null;
 
-  @OneToMany(() => Report, (r) => r.category)
+  @OneToMany('Report', 'category')
   reports: Report[];
 }

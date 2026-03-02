@@ -4,13 +4,16 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Course } from './course.entity';
-import { User } from '../../auth/entities/user.entity';
-import { BaseModel } from '../../../core/base-model';
+import type { User } from '../../auth/entities/user.entity';
+import type { Course } from './course.entity';
 
 @Entity('courseReviews')
-export class CourseReview extends BaseModel {
+export class CourseReview {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Index()
   @Column()
   userId: number;
@@ -19,15 +22,11 @@ export class CourseReview extends BaseModel {
   @Column()
   courseId: number;
 
-  @ManyToOne(() => User, (u) => u.courseReviews, {
-    onDelete: 'CASCADE',
-  })
+  @ManyToOne('User', 'courseReviews', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => Course, (c) => c.reviews, {
-    onDelete: 'CASCADE',
-  })
+  @ManyToOne('Course', 'reviews', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'courseId' })
   course: Course;
 
@@ -37,6 +36,6 @@ export class CourseReview extends BaseModel {
   @Column({ type: 'varchar', length: 512, nullable: true })
   comment?: string | null;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamptz' })
   date: Date;
 }

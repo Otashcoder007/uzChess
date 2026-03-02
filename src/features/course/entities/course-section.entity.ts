@@ -14,7 +14,7 @@ export class CourseSection extends BaseModel {
   @Column()
   courseId: number;
 
-  @ManyToOne(() => Course, (c) => c.sections, {
+  @ManyToOne('Course', 'sections', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseId' })
@@ -29,6 +29,6 @@ export class CourseSection extends BaseModel {
   @Column({ type: 'timestamp' })
   date: Date;
 
-  @OneToMany(() => CourseLesson, (l) => l.section)
+  @OneToMany('CourseLesson', 'section')
   lessons: CourseLesson[];
 }

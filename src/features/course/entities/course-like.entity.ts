@@ -19,13 +19,13 @@ export class CourseLike extends BaseModel {
   @PrimaryColumn()
   courseId: number;
 
-  @ManyToOne(() => User, (u) => u.courseLikes, {
+  @ManyToOne('User', 'courseLikes', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => Course, (c) => c.likes, {
+  @ManyToOne('Course', 'likes', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseId' })

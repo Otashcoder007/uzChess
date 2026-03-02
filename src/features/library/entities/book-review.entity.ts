@@ -19,18 +19,18 @@ export class BookReview extends BaseModel {
   @Column()
   bookId: number;
 
-  @ManyToOne(() => User, (u) => u.bookReviews, {
+  @ManyToOne('User', 'bookReviews', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => Book, (b) => b.reviews, {
+  @ManyToOne('Book', 'reviews', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'bookId' })
   book: Book;
-w
+
   @Column({ type: 'int' })
   rating: number;
 

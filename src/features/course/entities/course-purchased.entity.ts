@@ -19,13 +19,13 @@ export class CoursePurchased extends BaseModel {
   @PrimaryColumn()
   courseId: number;
 
-  @ManyToOne(() => User, (u) => u.purchasedCourses, {
+  @ManyToOne('User', 'purchasedCourses', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => Course, (c) => c.purchases, {
+  @ManyToOne('Course', 'purchases', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseId' })
@@ -34,6 +34,6 @@ export class CoursePurchased extends BaseModel {
   @Column({ type: 'boolean', default: false })
   isCompleted: boolean;
 
-  @Column({ type: 'timestamptz' })
+  @Column({ type: 'timestamp' })
   date: Date;
 }

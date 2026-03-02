@@ -18,7 +18,7 @@ export class Book extends BaseModel {
   @Column()
   authorId: number;
 
-  @ManyToOne(() => Author, (a) => a.books, {
+  @ManyToOne('Author', 'books', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'authorId' })
@@ -27,7 +27,7 @@ export class Book extends BaseModel {
   @Column()
   categoryId: number;
 
-  @ManyToOne(() => BookCategory, (c) => c.books, {
+  @ManyToOne('BookCategory', 'books', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'categoryId' })
@@ -36,7 +36,7 @@ export class Book extends BaseModel {
   @Column()
   languageId: number;
 
-  @ManyToOne(() => Language, (l) => l.books, {
+  @ManyToOne('Language', 'books', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'languageId' })
@@ -45,7 +45,7 @@ export class Book extends BaseModel {
   @Column()
   difficultyId: number;
 
-  @ManyToOne(() => Difficulty, (d) => d.books, {
+  @ManyToOne('Difficulty', 'books', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'difficultyId' })
@@ -88,9 +88,9 @@ export class Book extends BaseModel {
   @Column({ type: 'date' })
   pubDate: string;
 
-  @OneToMany(() => BookLike, (x) => x.book)
+  @OneToMany('BookLike', 'book')
   likes: BookLike[];
 
-  @OneToMany(() => BookReview, (x) => x.book)
+  @OneToMany('BookReview', 'book')
   reviews: BookReview[];
 }

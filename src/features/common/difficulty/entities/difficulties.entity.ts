@@ -11,9 +11,9 @@ export class Difficulty extends BaseModel {
   @Column({ type: 'varchar', length: 128 })
   icon: string;
 
-  @OneToMany(() => Course, (c) => c.difficultyId)
+  @OneToMany('Course', 'difficultyId')
   courses: Course[];
 
-  @OneToMany(() => Book, (b) => b.difficulty)
+  @OneToMany('Book', 'difficulty')
   books: Book[];
 }

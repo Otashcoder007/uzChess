@@ -8,9 +8,9 @@ export class Author extends BaseModel {
   @Column({ type: 'varchar', length: 64 })
   fullName: string;
 
-  @OneToMany(() => Course, (c) => c.authorId)
+  @OneToMany('Course', 'authorId')
   courses: Course[];
 
-  @OneToMany(() => Book, (b) => b.author)
+  @OneToMany('Book', 'author')
   books: Book[];
 }

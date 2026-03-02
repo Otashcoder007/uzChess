@@ -19,13 +19,13 @@ export class UserLesson extends BaseModel {
   @PrimaryColumn()
   courseLessonId: number;
 
-  @ManyToOne(() => User, (u) => u.lessonProgress, {
+  @ManyToOne('User', 'lessonProgress', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => CourseLesson, (l) => l.progress, {
+  @ManyToOne('CourseLesson', 'progress', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseLessonId' })

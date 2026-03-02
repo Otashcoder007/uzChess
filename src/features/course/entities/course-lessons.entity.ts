@@ -15,7 +15,7 @@ export class CourseLesson extends BaseModel {
   @Column()
   courseId: number;
 
-  @ManyToOne(() => Course, (c) => c.lessonsCount, {
+  @ManyToOne('Course', 'lessonsCount', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseId' })
@@ -24,7 +24,7 @@ export class CourseLesson extends BaseModel {
   @Column()
   courseSectionId: number;
 
-  @ManyToOne(() => CourseSection, (s) => s.lessons, {
+  @ManyToOne('CourseSection', 'lessons', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'courseSectionId' })
@@ -51,6 +51,6 @@ export class CourseLesson extends BaseModel {
   @Column({ type: 'boolean', default: false })
   isFree: boolean;
 
-  @OneToMany(() => UserLesson, (ul) => ul.courseLessonId)
+  @OneToMany('UserLesson', 'courseLessonId')
   progress: UserLesson[];
 }

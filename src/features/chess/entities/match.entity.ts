@@ -4,7 +4,6 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Player } from './player.entity';
 import { WinnerType } from '../../../core/enums/winnerType';
@@ -17,7 +16,7 @@ export class Match extends BaseModel {
   @Column()
   firstPlayer: number;
 
-  @ManyToOne(() => Player, (p) => p.firstMatches, {
+  @ManyToOne('Player', 'firstMatches', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'firstPlayer' })
@@ -30,7 +29,7 @@ export class Match extends BaseModel {
   @Column()
   secondPlayer: number;
 
-  @ManyToOne(() => Player, (p) => p.secondMatches, {
+  @ManyToOne('Player', 'secondMatches', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'secondPlayer' })

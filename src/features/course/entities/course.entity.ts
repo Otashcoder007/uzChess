@@ -21,7 +21,7 @@ export class Course extends BaseModel {
   @Column()
   authorId: number;
 
-  @ManyToOne(() => Author, (a) => a.courses, {
+  @ManyToOne('Author', 'courses', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'authorId' })
@@ -30,7 +30,7 @@ export class Course extends BaseModel {
   @Column()
   categoryId: number;
 
-  @ManyToOne(() => CourseCategory, (cc) => cc.courses, {
+  @ManyToOne('CourseCategory', 'courses', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'categoryId' })
@@ -39,7 +39,7 @@ export class Course extends BaseModel {
   @Column()
   languageId: number;
 
-  @ManyToOne(() => Language, (l) => l.courses, {
+  @ManyToOne('Language', 'courses', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'languageId' })
@@ -48,7 +48,7 @@ export class Course extends BaseModel {
   @Column()
   difficultyId: number;
 
-  @ManyToOne(() => Difficulty, (d) => d.courses, {
+  @ManyToOne('Difficulty', 'courses', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'difficultyId' })
@@ -88,18 +88,18 @@ export class Course extends BaseModel {
   @Column({ type: 'int', default: 0 })
   lessonsCount: number;
 
-  @OneToMany(() => CourseSection, (s) => s.course)
+  @OneToMany('CourseSection', 'course')
   sections: CourseSection[];
 
-  @OneToMany(() => CourseLesson, (l) => l.course)
+  @OneToMany('CourseLesson', 'course')
   lessons: CourseLesson[];
 
-  @OneToMany(() => CoursePurchased, (p) => p.course)
+  @OneToMany('CoursePurchased', 'course')
   purchases: CoursePurchased[];
 
-  @OneToMany(() => CourseLike, (l) => l.course)
+  @OneToMany('CourseLike', 'course')
   likes: CourseLike[];
 
-  @OneToMany(() => CourseReview, (r) => r.course)
+  @OneToMany('CourseReview', 'course')
   reviews: CourseReview[];
 }

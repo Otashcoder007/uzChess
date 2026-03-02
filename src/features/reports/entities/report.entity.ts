@@ -15,7 +15,7 @@ export class Report extends BaseModel {
   @Column()
   reportCategoryId: number;
 
-  @ManyToOne(() => ReportCategory, (rc) => rc.reports, {
+  @ManyToOne('ReportCategory', 'reports', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'reportCategoryId' })

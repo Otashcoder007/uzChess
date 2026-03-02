@@ -4,7 +4,6 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Country } from './country.entity';
 import { Match } from './match.entity';
@@ -15,7 +14,7 @@ export class Player extends BaseModel {
   @Column()
   countryId: number;
 
-  @ManyToOne(() => Country, (c) => c.players, {
+  @ManyToOne('Country', 'players', {
     onDelete: 'RESTRICT',
   })
   @JoinColumn({ name: 'countryId' })
@@ -36,9 +35,9 @@ export class Player extends BaseModel {
   @Column({ type: 'int', nullable: true })
   blitz?: number | null;
 
-  @OneToMany(() => Match, (m) => m.firstPlayerObj)
+  @OneToMany('Match', 'firstPlayerObj')
   firstMatches: Match[];
 
-  @OneToMany(() => Match, (m) => m.secondPlayerObj)
+  @OneToMany('Match', 'secondPlayerObj')
   secondMatches: Match[];
 }

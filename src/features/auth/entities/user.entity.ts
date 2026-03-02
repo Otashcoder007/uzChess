@@ -11,7 +11,7 @@ import { BookLike } from '../../library/entities/book-like.entity';
 import { BookReview } from '../../library/entities/book-review.entity';
 import { BaseModel } from '../../../core/base-model';
 
-@Entity('users')
+@Entity('user')
 export class User extends BaseModel {
   @Column({ type: 'varchar', length: 64 })
   fullName: string;
@@ -38,27 +38,27 @@ export class User extends BaseModel {
   @Column({ type: 'boolean', default: false })
   isActive: boolean;
 
-  @OneToMany(() => OtpCode, (x) => x.user)
+  @OneToMany('OtpCode', 'user')
   otpCodes: OtpCode[];
 
-  @OneToMany(() => CoursePurchased, (x) => x.user)
+  @OneToMany('CoursePurchased','user')
   purchasedCourses: CoursePurchased[];
 
-  @OneToMany(() => CourseLike, (x) => x.user)
+  @OneToMany('CourseLike', 'user')
   courseLikes: CourseLike[];
 
-  @OneToMany(() => CourseReview, (x) => x.user)
+  @OneToMany('CourseReview', 'user')
   courseReviews: CourseReview[];
 
-  @OneToMany(() => UserLesson, (x) => x.user)
+  @OneToMany('UserLesson', 'user')
   lessonProgress: UserLesson[];
 
-  @OneToMany(() => BookLike, (x) => x.user)
+  @OneToMany('BookLike', 'user')
   bookLikes: BookLike[];
 
-  @OneToMany(() => BookReview, (x) => x.user)
+  @OneToMany('BookReview', 'user')
   bookReviews: BookReview[];
 
-  @OneToMany(() => NewsView, (x) => x.user)
+  @OneToMany('NewsView', 'user')
   newsViews: NewsView[];
 }

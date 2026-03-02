@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm';
-import { User } from '../../auth/entities/user.entity';
-import { News } from './news.entity';
+import type { User } from '../../auth/entities/user.entity';
+import type { News } from './news.entity';
 import { BaseModel } from '../../../core/base-model';
 
 @Entity('newsViews')
@@ -19,15 +19,11 @@ export class NewsView extends BaseModel {
   @PrimaryColumn()
   newsId: number;
 
-  @ManyToOne(() => User, (u) => u.newsViews, {
-    onDelete: 'CASCADE',
-  })
+  @ManyToOne('User', 'newsViews', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => News, (n) => n.views, {
-    onDelete: 'CASCADE',
-  })
+  @ManyToOne('News', 'views', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'newsId' })
   news: News;
 

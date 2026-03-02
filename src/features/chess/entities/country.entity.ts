@@ -10,6 +10,6 @@ export class Country extends BaseModel {
   @Column({ type: 'varchar', length: 128 })
   flag: string;
 
-  @OneToMany(() => Player, (p) => p.country)
+  @OneToMany('Player', 'country')
   players: Player[];
 }

@@ -11,9 +11,9 @@ export class Language extends BaseModel {
   @Column({ type: 'varchar', length: 2, unique: true })
   code: string;
 
-  @OneToMany(() => Course, (c) => c.languageId)
+  @OneToMany('Course', 'languageId')
   courses: Course[];
 
-  @OneToMany(() => Book, (b) => b.language)
+  @OneToMany('Book', 'language')
   books: Book[];
 }

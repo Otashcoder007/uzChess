@@ -4,25 +4,29 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-import { User } from './user.entity';
 import { OtpType } from '../../../core/enums/otpType';
-import { BaseModel } from '../../../core/base-model';
+import type { User } from './user.entity';
 
 @Entity('otpCodes')
-export class OtpCode extends BaseModel {
+export class OtpCode {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Index()
-  @Column({ type: 'int' })
+  @Column()
   userId: number;
 
-  @ManyToOne(() => User, (u) => u.otpCodes, {
-    onDelete: 'CASCADE',
-  })
+  @ManyToOne('User', 'otpCodes', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
   user: User;
 
   @Column({ type: 'varchar', length: 6 })
   code: string;
+
+  @Column({ type: 'timestamp' })
+  date: Date;
 
   @Column({ type: 'enum', enum: OtpType })
   type: OtpType;

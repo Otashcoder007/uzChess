@@ -19,18 +19,18 @@ export class BookLike extends BaseModel {
   @PrimaryColumn()
   bookId: number;
 
-  @ManyToOne(() => User, (u) => u.bookLikes, {
+  @ManyToOne('User', 'bookLikes', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'userId' })
   user: User;
 
-  @ManyToOne(() => Book, (b) => b.likes, {
+  @ManyToOne('Book', 'likes', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'bookId' })
   book: Book;
 
-  @Column({ type: 'timestamptz' })
+  @Column({ type: 'timestamp' })
   date: Date;
 }
