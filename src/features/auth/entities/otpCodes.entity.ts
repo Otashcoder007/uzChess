@@ -12,7 +12,7 @@ import { BaseModel } from '../../../core/base-model';
 @Entity('otpCodes')
 export class OtpCode extends BaseModel {
   @Index()
-  @Column()
+  @Column({ type: 'int' })
   userId: number;
 
   @ManyToOne(() => User, (u) => u.otpCodes, {

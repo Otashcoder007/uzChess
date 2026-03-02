@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
@@ -19,9 +20,7 @@ async function bootstrap() {
 
   console.log(`Server is listening on port => ${port}`);
   console.log(`-----------------------------------`);
-  console.log(
-    `You can check on here: http://localhost:${port}/docs`,
-  );
+  console.log(`You can check on here: http://localhost:${port}/docs`);
 }
 
 bootstrap();
