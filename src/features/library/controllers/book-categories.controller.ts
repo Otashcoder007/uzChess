@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Patch,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { BookCategoryService } from '../services/book-category.service';
 import { BookCategoryCreateDto } from '../dtos/book-category/book-category.create.dto';
 import { BookCategoryUpdateDto } from '../dtos/book-category/book-category.update.dto';
@@ -13,7 +6,8 @@ import { ApiOkResponse } from '@nestjs/swagger';
 
 @Controller('library/categories')
 export class BookCategoriesController {
-  constructor(private readonly service: BookCategoryService) {}
+  constructor(private readonly service: BookCategoryService) {
+  }
 
   @Post()
   @ApiOkResponse()
@@ -35,10 +29,7 @@ export class BookCategoriesController {
 
   @Patch(':id')
   @ApiOkResponse()
-  update(
-    @Param('id') id: string,
-    @Body() dto: BookCategoryUpdateDto,
-  ) {
+  update(@Param('id') id: string, @Body() dto: BookCategoryUpdateDto) {
     return this.service.update(Number(id), dto);
   }
 }

@@ -6,4 +6,5 @@ import { Author } from './entities/author.entity';
   imports: [TypeOrmModule.forFeature([Author])],
   exports: [TypeOrmModule],
 })
-export class AuthorsModule {}
+export class AuthorsModule {
+}

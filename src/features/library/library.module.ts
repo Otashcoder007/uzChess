@@ -21,4 +21,5 @@ import { BookController } from './controllers/book.controller';
   controllers: [BookCategoriesController, BookController],
   providers: [BookCategoryService, BookService],
 })
-export class LibraryModule {}
+export class LibraryModule {
+}

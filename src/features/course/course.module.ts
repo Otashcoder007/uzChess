@@ -24,4 +24,5 @@ import { CoursePurchased } from './entities/course-purchased.entity';
     ]),
   ],
 })
-export class CourseModule {}
+export class CourseModule {
+}

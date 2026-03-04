@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
 import { ReportType } from '../../../core/enums/reportType';
 import { ReportCategory } from './report-category.entity';
 import { BaseModel } from '../../../core/base-model';

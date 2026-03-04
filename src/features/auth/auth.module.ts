@@ -10,4 +10,5 @@ import { OtpCode } from './entities/otpCodes.entity';
   ],
   exports: [TypeOrmModule],
 })
-export class AuthModule {}
+export class AuthModule {
+}

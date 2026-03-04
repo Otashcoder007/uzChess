@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-} from 'typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
 import { Player } from './player.entity';
 import { WinnerType } from '../../../core/enums/winnerType';
 import { MatchTypes } from '../../../core/enums/matchTypes';

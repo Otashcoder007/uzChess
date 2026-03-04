@@ -36,9 +36,7 @@ export class OtpCodeService {
   }
 
   private generateOtp(): string {
-    const otpCode = Math.floor(Math.random() * 1_000_000).toString(
-      10,
-    );
+    const otpCode = Math.floor(Math.random() * 1_000_000).toString(10);
     const code: any[] = [];
     for (let i = 0; i < 6 - otpCode.length; i++) {
       code.push(0);

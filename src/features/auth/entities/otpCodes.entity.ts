@@ -1,19 +1,10 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne } from 'typeorm';
 import { OtpType } from '../../../core/enums/otpType';
 import type { User } from './user.entity';
+import { BaseModel } from '../../../core/base-model';
 
 @Entity('otpCodes')
-export class OtpCode {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class OtpCode extends BaseModel {
   @Index()
   @Column()
   userId: number;

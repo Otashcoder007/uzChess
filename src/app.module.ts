@@ -28,4 +28,5 @@ import { ReportsModule } from './features/reports/reports.module';
     ReportsModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+}

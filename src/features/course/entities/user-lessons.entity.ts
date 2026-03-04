@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-  PrimaryColumn,
-} from 'typeorm';
+import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { User } from '../../auth/entities/user.entity';
 import { CourseLesson } from './course-lessons.entity';
 import { BaseModel } from '../../../core/base-model';

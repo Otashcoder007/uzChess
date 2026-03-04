@@ -41,7 +41,7 @@ export class User extends BaseModel {
   @OneToMany('OtpCode', 'user')
   otpCodes: OtpCode[];
 
-  @OneToMany('CoursePurchased','user')
+  @OneToMany('CoursePurchased', 'user')
   purchasedCourses: CoursePurchased[];
 
   @OneToMany('CourseLike', 'user')

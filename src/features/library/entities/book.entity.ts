@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Author } from '../../common/authors/entities/author.entity';
 import { BookCategory } from './book-category.entity';
 import { Language } from '../../common/languages/entities/languages.entity';

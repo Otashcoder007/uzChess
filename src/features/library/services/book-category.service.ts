@@ -10,7 +10,8 @@ export class BookCategoryService {
   constructor(
     @InjectRepository(BookCategory)
     private readonly repo: Repository<BookCategory>,
-  ) {}
+  ) {
+  }
 
   create(dto: BookCategoryCreateDto) {
     return this.repo.save(this.repo.create(dto));

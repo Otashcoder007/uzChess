@@ -6,4 +6,5 @@ import { Report } from './entities/report.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([ReportCategory, Report])],
 })
-export class ReportsModule {}
+export class ReportsModule {
+}

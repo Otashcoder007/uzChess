@@ -6,4 +6,5 @@ import { Language } from './entities/languages.entity';
   imports: [TypeOrmModule.forFeature([Language])],
   exports: [TypeOrmModule],
 })
-export class LanguagesModule {}
+export class LanguagesModule {
+}

@@ -26,9 +26,7 @@ export class AuthService {
   async signUp(payload: SignUpDto) {
     const user = await User.countBy({ login: payload.login });
     if (user) {
-      throw new BadRequestException(
-        'User with given login already exists',
-      );
+      throw new BadRequestException('User with given login already exists');
     }
 
     const newUser = User.create(payload as User);
@@ -72,9 +70,7 @@ export class AuthService {
   async verifyOtp({ login, code }: VerifyOtpDto) {
     const user = await User.findOneBy({ login });
     if (!user) {
-      throw new BadRequestException(
-        'User with given login does not exist',
-      );
+      throw new BadRequestException('User with given login does not exist');
     }
 
     const otpValid = await this.otpService.verifyOtp(user.id, code);

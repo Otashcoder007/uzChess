@@ -6,4 +6,5 @@ import { NewsView } from './entities/news-view.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([News, NewsView])],
 })
-export class NewsModule {}
+export class NewsModule {
+}

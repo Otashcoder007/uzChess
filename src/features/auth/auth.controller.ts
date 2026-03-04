@@ -7,7 +7,8 @@ import { ResendOtpDto } from './dtos/resend-otp.dto';
 
 @Controller('auth')
 export class AuthenticationController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {
+  }
 
   @Post('sign-up')
   async signUp(@Body() payload: SignUpDto) {

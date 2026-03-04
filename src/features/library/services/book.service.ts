@@ -10,7 +10,8 @@ import { BookUpdateDto } from '../dtos/book/book.update.dto';
 export class BookService {
   constructor(
     @InjectRepository(Book) private readonly repo: Repository<Book>,
-  ) {}
+  ) {
+  }
 
   create(dto: BookCreateDto) {
     return this.repo.save(
