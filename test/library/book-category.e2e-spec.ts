@@ -1,12 +1,12 @@
 import 'dotenv/config';
 import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
-import { createTestApp } from './utils/test-app';
-import { teardownTestApp } from './utils/teardown';
+import { createTestApp } from '../utils/test-app';
+import { teardownTestApp } from '../utils/teardown';
 import { DataSource } from 'typeorm';
 import argon2 from 'argon2';
 
-describe('BookCategoryControllerAdmin (e2e)', () => {
+describe('BookCategoriesController (e2e)', () => {
   let app: INestApplication;
   let dataSource: DataSource;
   let jwtToken: string;
@@ -49,7 +49,7 @@ describe('BookCategoryControllerAdmin (e2e)', () => {
     expect(res.body.title).toEqual('Tarix');
   });
 
-  it('POST /admin/book-category -> should conflic with the existing Tarix category', async () => {
+  it('POST /admin/book-category -> should conflict with the existing Tarix category', async () => {
     const res = await request(app.getHttpServer())
       .post('/admin/book-category')
       .set('Authorization', `Bearer ${jwtToken}`)

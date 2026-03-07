@@ -1,10 +1,9 @@
 import 'dotenv/config';
-
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 const TestDataSourceOptions: DataSourceOptions = {
   type: 'postgres',
-  url: process.env.TEST_DB_URL,
+  url: process.env.DB_URL_TEST,
   entities: ['./src/**/*.entity.ts'],
   synchronize: true,
   dropSchema: false,

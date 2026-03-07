@@ -6,8 +6,7 @@ import { ApiOkResponse } from '@nestjs/swagger';
 
 @Controller('books')
 export class BookController {
-  constructor(private readonly service: BookService) {
-  }
+  constructor(private readonly service: BookService) {}
 
   @Post()
   @ApiOkResponse()
